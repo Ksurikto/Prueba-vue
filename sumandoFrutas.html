@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba de Vue</title>
+</head>
+<body>
+
+    <div id="app">
+        <h1>{{titulo}}</h1>
+
+        <input type="text" v-model="nuevaFruta" @keyup.enter="agregarFruta">
+        <button @click="agregarFruta">Agregar</button>
+
+      <ul>
+          <li v-for="fruta of frutas" >
+              <input type="number" v-model.number="fruta.cantidad">
+               - {{fruta.nombre}}
+               <button @click="fruta.cantidad++">+</button>
+              <span v-if="fruta.cantidad === 0"> -  Sin Stock</span>
+            </li>
+      </ul>
+
+      <h4>TOTAL : {{sumarFrutas}}</h4>
+
+    </div>
+
+    <div class="col-12 mt-3 mt-lg-4 col-lg-3" data-aos="fade-up">
+        <a href="index.html">
+            <button class="btn btn-primary m-2">Volver</button>
+        </a>
+    </div>
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script src="01.js"></script>
+
+</body>
+</html>
